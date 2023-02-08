@@ -9,4 +9,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED)
 
 find_package(fmt REQUIRED)
 
+include_directories("${CMAKE_SOURCE_DIR}/include/")
+
 add_subdirectory(src)

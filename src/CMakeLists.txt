@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 
 file(GLOB SOURCE_FILES *.cpp)
-file(GLOB HEADER_FILES *.hpp)
+file(GLOB HEADER_FILES *.hpp *.ipp)
 
 add_executable(${CMAKE_PROJECT_NAME}
   ${SOURCE_FILES}
