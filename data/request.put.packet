@@ -1,0 +1,14 @@
+PUT /sv/post/22 HTTP/1.1
+Connection: keep-alive
+
+{
+  "title": "How to design file IO with C++ using cmake",
+  "last-modified": "2023-02-09 12:30:00",
+  "author": "jklim",
+  "keywords": [
+    "c++",
+    "design pattern",
+    "cmake",
+    "file io"
+  ]
+}

@@ -1,8 +1,8 @@
-#ifndef __SV_NUMBER_PARSER_IPP__
-#define __SV_NUMBER_PARSER_IPP__
+#ifndef __SV_PARSER_NUMBER_PARSER_IPP__
+#define __SV_PARSER_NUMBER_PARSER_IPP__
 #pragma once
 
-#include "sv/number_parser.hpp"
+#include "sv/parser/number_parser.hpp"
 #include <boost/spirit/include/classic.hpp>
 
 namespace sv
@@ -28,4 +28,4 @@ bool number_subject::operator()(const Char* format, Depot& depot) const
 } // namespace sv::detail
 } // namespace sv
 
-#endif // __SV_NUMBER_PARSER_IPP__
+#endif // __SV_PARSER_NUMBER_PARSER_IPP__

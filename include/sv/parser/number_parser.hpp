@@ -1,13 +1,12 @@
-#ifndef __SV_NUMBER_PARSER_HPP__
-#define __SV_NUMBER_PARSER_HPP__
+#ifndef __SV_PARSER_NUMBER_PARSER_HPP__
+#define __SV_PARSER_NUMBER_PARSER_HPP__
 #pragma once
 
-#include "sv/parser.hpp"
+#include "sv/parser/parser.hpp"
 #include <string>
 
 namespace sv
 {
-
 namespace detail
 {
 class number_subject
@@ -29,6 +28,6 @@ using number_parser = basic_parser<detail::number_subject>;
 
 } // namespace sv
 
-#include "sv/number_parser.ipp"
+#include "sv/parser/number_parser.ipp"
 
-#endif // __SV_NUMBER_PARSER_HPP__
+#endif // __SV_PARSER_NUMBER_PARSER_HPP__

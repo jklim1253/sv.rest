@@ -1,11 +1,12 @@
-#ifndef __SV_PARSER_IPP__
-#define __SV_PARSER_IPP__
+#ifndef __SV_PARSER_PARSER_IPP__
+#define __SV_PARSER_PARSER_IPP__
 #pragma once
 
 #include <string>
 #include <iostream>
 
 #include "sv/common.hpp"
+#include "sv/parser/parser.hpp"
 
 namespace sv
 {
@@ -17,11 +18,11 @@ bool basic_parser<Subject>::operator()(const Char* format, Depot& depot) const
   return subject(format, depot);
 }
 
-template<class Subject>
-void run_parser()
+template<class Subject, class Expression, class...Args>
+void run_parser(Expression expr, Args&&...args)
 {
   std::string input;
-  while ((std::cout << "input:>") && std::getline(std::cin, input))
+  while ((std::cout << "input:>") && string_feeder<Expression>(expr, input))
   {
     if (input.empty()) continue;
     if (input == "quit") break;
@@ -33,10 +34,10 @@ void run_parser()
       continue;
     }
 
-    println("matched!\n{}", result);
+    fmt::print("matched!\n{}\n", fmt::join(result, "\n"));
   }
 }
 
 } // namespace sv
 
-#endif // __SV_PARSER_IPP__
+#endif // __SV_PARSER_PARSER_IPP__
