@@ -11,7 +11,7 @@ namespace detail
 {
 
 template<class Char, class Depot>
-bool number_subject::operator()(const Char* format, Depot& depot) const
+bool number_subject::operator()(const Char* format, Depot& depot)
 {
   using namespace boost::spirit::classic;
 

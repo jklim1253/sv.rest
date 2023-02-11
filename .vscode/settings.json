@@ -9,5 +9,9 @@
   },
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/include"
-  ]
+  ],
+  "files.associations": {
+    "*.ipp": "cpp",
+    "xstring": "cpp"
+  }
 }

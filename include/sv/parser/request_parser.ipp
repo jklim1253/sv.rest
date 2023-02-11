@@ -11,17 +11,22 @@ namespace detail
 {
 
 template<class Char, class Depot>
-bool request_subject::operator()(const Char* format, Depot& depot) const
+bool request_subject::operator()(const Char* format, Depot& depot)
 {
   using namespace boost::spirit::classic;
   
-  return parse(
+  return parse
+  (
     format,
+    // begin grammar
     (
-      *((any_p[push_back_a(depot)] | ~"\r\n") >> "\r\n")
-      >> "\r\n"
-      >> *(any_p[push_back_a(depot)])
+      *
+      (
+        (*print_p)[push_back_a(depot)] >> "\r\n"
+      )
+      >> *("\r\n" >> (*anychar_p)[push_back_a(depot)])
     )
+    // end grammar
   ).full;
 }
 

@@ -11,12 +11,13 @@ template<class Subject>
 struct basic_parser
 {
   using subject_type = Subject;
+  using result_type = typename subject_type::result_type;
 
   template<class Char, class Depot>
-  bool operator()(const Char* format, Depot& depot) const;
+  bool operator()(const Char* format, Depot& depot);
 
   template<class Char, class Depot>
-  bool operator()(std::basic_string<Char> const& format, Depot& depot) const
+  bool operator()(std::basic_string<Char> const& format, Depot& depot)
   {
     return (*this)(format.c_str(), depot);
   }
@@ -26,13 +27,13 @@ private:
 };
 
 template<class Expression>
-bool string_feeder(Expression expr, std::string& data)
+bool string_feeder(Expression&& expr, std::string& data)
 {
   return expr(data);
 }
 
 template<class Subject, class Expression, class...Args>
-void run_parser(Expression expr, Args&&...args);
+void run_parser(Expression&& expr, Args&&...args);
 
 } // namespace sv
 

@@ -13,10 +13,10 @@ class number_subject
 {
 public:
   template<class Char, class Depot>
-  bool operator()(const Char* format, Depot& depot) const;
+  bool operator()(const Char* format, Depot& depot);
 
   template<class Char, class Depot>
-  bool operator()(std::basic_string<Char> const& format, Depot& depot) const
+  bool operator()(std::basic_string<Char> const& format, Depot& depot)
   {
     return (*this)(format.c_str(), depot);
   }

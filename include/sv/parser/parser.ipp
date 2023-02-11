@@ -13,22 +13,28 @@ namespace sv
 
 template<class Subject>
 template<class Char, class Depot>
-bool basic_parser<Subject>::operator()(const Char* format, Depot& depot) const
+bool basic_parser<Subject>::operator()(const Char* format, Depot& depot)
 {
   return subject(format, depot);
 }
 
 template<class Subject, class Expression, class...Args>
-void run_parser(Expression expr, Args&&...args)
+void run_parser(Expression&& expr, Args&&...args)
 {
+  basic_parser<Subject> parser;
+
   std::string input;
-  while ((std::cout << "input:>") && string_feeder<Expression>(expr, input))
+  while ((std::cout << "input:>") &&
+         string_feeder<Expression>(std::forward<Expression>(expr), input))
   {
+    println("{}", input);
+
     if (input.empty()) continue;
     if (input == "quit") break;
     
-    std::list<double> result;
-    if (!basic_parser<Subject>()(input, result))
+    // std::list<double> result;
+    typename Subject::result_type result;
+    if (!parser(input, result))
     {
       println("input format error");
       continue;
