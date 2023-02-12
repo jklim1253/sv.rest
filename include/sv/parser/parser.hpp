@@ -26,14 +26,8 @@ private:
   subject_type subject;
 };
 
-template<class Expression>
-bool string_feeder(Expression&& expr, std::string& data)
-{
-  return expr(data);
-}
-
-template<class Subject, class Expression, class...Args>
-void run_parser(Expression&& expr, Args&&...args);
+template<class Subject, class InputFeeder, class...Args>
+void run_parser(InputFeeder&& feeder, Args&&...args);
 
 } // namespace sv
 

@@ -18,16 +18,15 @@ bool basic_parser<Subject>::operator()(const Char* format, Depot& depot)
   return subject(format, depot);
 }
 
-template<class Subject, class Expression, class...Args>
-void run_parser(Expression&& expr, Args&&...args)
+template<class Subject, class InputFeeder, class...Args>
+void run_parser(InputFeeder&& feeder, Args&&...args)
 {
   basic_parser<Subject> parser;
 
   std::string input;
-  while ((std::cout << "input:>") &&
-         string_feeder<Expression>(std::forward<Expression>(expr), input))
+  while (feeder(input))
   {
-    println("{}", input);
+    fmt::print(fmt::fg(fmt::color::green), "{}", input);
 
     if (input.empty()) continue;
     if (input == "quit") break;
@@ -36,11 +35,12 @@ void run_parser(Expression&& expr, Args&&...args)
     typename Subject::result_type result;
     if (!parser(input, result))
     {
-      println("input format error");
+      fmt::print(fmt::fg(fmt::color::red), "\ninput format error\n");
       continue;
     }
 
-    fmt::print("matched!\n{}\n", fmt::join(result, "\n"));
+    fmt::print(fmt::fg(fmt::color::yellow), "\nmatched!\n");
+    fmt::print(fmt::fg(fmt::color::white), "{}\n", fmt::join(result, "\n"));
   }
 }
 
