@@ -63,7 +63,7 @@ int main(int argc, const char **argv)
 {
   try
   {
-    // sv::run_parser<sv::number_parser>();
+    sv::run_parser<sv::number_parser>(from_console());
 
     sv::run_parser<sv::request_parser>(from_filelist("request.list"));
   }

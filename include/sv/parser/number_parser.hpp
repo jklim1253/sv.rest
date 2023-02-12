@@ -12,6 +12,9 @@ namespace detail
 class number_subject
 {
 public:
+  using result_type = std::list<double>;
+
+public:
   template<class Char, class Depot>
   bool operator()(const Char* format, Depot& depot);
 
