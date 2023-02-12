@@ -1,15 +1,20 @@
 #include "sv/common.hpp"
 #include "sv/parser.hpp"
 
-#include <fstream>
+namespace test
+{
+
+void test_parser();
+void test_network();
+
+} // namespace test
 
 int main(int argc, const char **argv)
 {
   try
   {
-    sv::run_parser<sv::number_parser>(sv::from_console());
-
-    sv::run_parser<sv::request_parser>(sv::from_filelist("request.list"));
+    // test::test_parser();
+    test::test_network();
   }
   catch (const std::exception &e)
   {
