@@ -15,16 +15,22 @@ bool request_subject::operator()(const Char* format, Depot& depot)
 {
   using namespace boost::spirit::classic;
   
+  strlit<> CRLF("\r\n");
+  
   return parse
   (
     format,
     // begin grammar
     (
+      +
+      (
+        (+(anychar_p - CRLF))[push_back_a(depot)] >> CRLF
+      )
+      >>
       *
       (
-        (*print_p)[push_back_a(depot)] >> "\r\n"
+        CRLF >> (*anychar_p)[push_back_a(depot)]
       )
-      >> *("\r\n" >> (*anychar_p)[push_back_a(depot)])
     )
     // end grammar
   ).full;

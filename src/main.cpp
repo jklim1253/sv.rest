@@ -63,14 +63,6 @@ int main(int argc, const char **argv)
 {
   try
   {
-    // std::list<std::string> filelist;
-    // sv::load_filelist("request.list", filelist);
-
-    // fmt::print("{}\n", filelist);
-
-    // std::string contents;
-    // sv::string_feeder(from_file("request.list"), contents);
-
     // sv::run_parser<sv::number_parser>();
 
     sv::run_parser<sv::request_parser>(from_filelist("request.list"));
