@@ -19,7 +19,11 @@ bool number_subject::operator()(const Char* format, Depot& depot)
     format,
     (
       real_p[push_back_a(depot)]
-      >> *(',' >> real_p[push_back_a(depot)])
+      >>
+      *
+      (
+        ',' >> real_p[push_back_a(depot)]
+      )
     ),
     space_p
   ).full;

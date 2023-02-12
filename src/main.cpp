@@ -65,7 +65,7 @@ int main(int argc, const char **argv)
   {
     sv::run_parser<sv::number_parser>(from_console());
 
-    sv::run_parser<sv::request_parser>(from_filelist("request.list"));
+    // sv::run_parser<sv::request_parser>(from_filelist("request.list"));
   }
   catch (const std::exception &e)
   {
