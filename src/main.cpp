@@ -9,6 +9,13 @@ void test_network();
 
 } // namespace test
 
+namespace sv
+{
+
+void test_interface();
+
+} // namespace sv
+
 int main(int argc, const char **argv)
 {
   try
