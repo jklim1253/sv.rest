@@ -5,8 +5,7 @@
 #include "sv/net/config.hpp"
 #include "sv/net/session_manager.hpp"
 
-namespace sv
-{
+SV_NET_NS_BEGIN
 
 template<class Session>
 class basic_server
@@ -34,8 +33,8 @@ private:
   session_manager_ptr session_manager_;
 };
 
-} // namespace sv
+SV_NET_NS_END
 
-#include "sv/net/server.ipp"
+#include "sv/net/impl/server.hpp"
 
 #endif // __SV_NET_SERVER_HPP__

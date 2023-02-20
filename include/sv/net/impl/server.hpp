@@ -1,5 +1,5 @@
-#ifndef __SV_NET_SERVER_IPP__
-#define __SV_NET_SERVER_IPP__
+#ifndef __SV_NET_IMPL_SERVER_HPP__
+#define __SV_NET_IMPL_SERVER_HPP__
 #pragma once
 
 #include "sv/net/server.hpp"
@@ -43,4 +43,4 @@ void basic_server<Session>::stop()
 
 } // namespace sv
 
-#endif // __SV_NET_SERVER_IPP__
+#endif // __SV_NET_IMPL_SERVER_HPP__

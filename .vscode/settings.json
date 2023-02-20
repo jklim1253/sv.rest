@@ -13,6 +13,7 @@
   ],
   "files.associations": {
     "*.ipp": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "istream": "cpp"
   }
 }

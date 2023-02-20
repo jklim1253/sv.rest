@@ -11,4 +11,7 @@ find_package(fmt REQUIRED)
 
 include_directories("${CMAKE_SOURCE_DIR}/include/")
 
-add_subdirectory(src)
+# add_subdirectory(src)
+
+# test make_bytes.hpp
+add_executable(make_bytes "sv/common/make_bytes.hpp")
